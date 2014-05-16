@@ -10,12 +10,12 @@ module Devise
         # incoming password.
         def self.digest(password, stretches, salt, pepper)
           phpass = ::Phpass.new(stretches)
-          phpass.hash("#{salt}#{password}#{pepper}")
+          phpass.hash("#{password}#{pepper}")
         end
 
         def self.compare(encrypted_password, password, stretches, salt, pepper)
           phpass = ::Phpass.new(stretches)
-          phpass.check("#{salt}#{password}#{pepper}", encrypted_password)
+          phpass.check("#{password}#{pepper}", encrypted_password)
         end
       end
     end

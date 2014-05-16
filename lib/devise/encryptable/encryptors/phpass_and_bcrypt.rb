@@ -13,10 +13,6 @@ module Devise
         def self.compare(encrypted_password, password, stretches, salt, pepper)
           Phpass.compare(encrypted_password, password, stretches, salt, pepper) || Bcrypt.compare(encrypted_password, password, stretches, salt, pepper)
         end
-
-        def self.salt(stretches)
-          ""
-        end
       end
     end
   end

@@ -102,6 +102,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   devise (~> 3.2.0)
   devise-encryptable!
   mocha (= 1.0.0)
