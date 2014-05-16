@@ -29,10 +29,12 @@ class Encryptors < ActiveSupport::TestCase
   test 'should be able to check phpass password with phpass_and_bcrypt' do
     phpass = '$H$9bEVEyvvULqSwIPhHOl.nbHgHK2tRZ.'
     assert_equal true, Devise::Encryptable::Encryptors::PhpassAndBcrypt.compare(phpass, '123mudar', nil, nil, nil)
+    hash = "invalidhash"
+    assert_equal false, Devise::Encryptable::Encryptors::PhpassAndBcrypt.compare(hash, '123mudar', nil, nil, nil)
   end
 
   test 'should be able to check bcrypt password with phpass_and_bcrypt' do
-    bcrypt = '$2a$10$o1ctxP.sRnpBcJOHL7mLy.bz8DBQPH5kK8FZB1zW4Lvay7I16ugyi '
+    bcrypt = '$2a$10$o1ctxP.sRnpBcJOHL7mLy.bz8DBQPH5kK8FZB1zW4Lvay7I16ugyi'
     assert_equal true, Devise::Encryptable::Encryptors::PhpassAndBcrypt.compare(bcrypt, '123mudar', nil, nil, nil)
   end
 

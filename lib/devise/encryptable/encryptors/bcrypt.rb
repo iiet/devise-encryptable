@@ -14,9 +14,13 @@ module Devise
 
         def self.compare(encrypted_password, password, stretches, salt, pepper)
           return false if encrypted_password.blank?
-          bcrypt   = ::BCrypt::Password.new(encrypted_password)
-          password = ::BCrypt::Engine.hash_secret("#{password}#{pepper}", bcrypt.salt)
-          Devise.secure_compare(password, encrypted_password)
+          begin
+            bcrypt   = ::BCrypt::Password.new(encrypted_password)
+            password = ::BCrypt::Engine.hash_secret("#{password}#{pepper}", bcrypt.salt)
+            Devise.secure_compare(password, encrypted_password)
+          rescue ::BCrypt::Errors::InvalidHash
+            false
+          end
         end
 
       end

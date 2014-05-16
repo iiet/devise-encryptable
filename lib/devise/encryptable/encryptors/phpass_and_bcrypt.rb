@@ -1,5 +1,3 @@
-require 'phpass'
-
 module Devise
   module Encryptable
     module Encryptors
