@@ -10,3 +10,4 @@ gem 'mocha', '1.0.0', require: false
 
 # phpass digest
 gem 'phpass-ruby'
+gem 'bcrypt'

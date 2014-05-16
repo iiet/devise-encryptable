@@ -49,7 +49,7 @@ module Devise
         self.password_salt
       end
 
-    protected
+      protected
 
       # Digests the password using the configured encryptor.
       def password_digest(password)
@@ -68,12 +68,12 @@ module Devise
         # Returns the class for the configured encryptor.
         def encryptor_class
           @encryptor_class ||= case encryptor
-            when :bcrypt
-              raise "In order to use bcrypt as encryptor, simply remove :encryptable from your devise model"
-            when nil
-              raise "You need to give an :encryptor as option in order to use :encryptable"
-            else
-              Devise::Encryptable::Encryptors.const_get(encryptor.to_s.classify)
+          when :bcrypt
+            raise "In order to use bcrypt as encryptor, simply remove :encryptable from your devise model"
+          when nil
+            raise "You need to give an :encryptor as option in order to use :encryptable"
+          else
+            Devise::Encryptable::Encryptors.const_get(encryptor.to_s.classify)
           end
         end
 
