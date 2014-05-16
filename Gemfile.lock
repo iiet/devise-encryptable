@@ -56,6 +56,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.9.3)
     orm_adapter (0.5.0)
+    phpass-ruby (0.1.2)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -104,5 +105,6 @@ DEPENDENCIES
   devise (~> 3.2.0)
   devise-encryptable!
   mocha (= 1.0.0)
+  phpass-ruby
   rails (~> 4.1.0)
   sqlite3

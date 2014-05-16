@@ -21,6 +21,11 @@ class Encryptors < ActiveSupport::TestCase
     assert_equal clearance, encryptor
   end
 
+  test 'should be able to check phpass password' do
+    phpass = '$H$9bEVEyvvULqSwIPhHOl.nbHgHK2tRZ.'
+    assert_equal true, Devise::Encryptable::Encryptors::Phpass.compare(phpass, '123mudar', nil, nil, nil)
+  end
+
   test 'digest should raise NotImplementedError if not implemented in subclass' do
     c = Class.new(Devise::Encryptable::Encryptors::Base)
     assert_raise(NotImplementedError) do
